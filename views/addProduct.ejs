@@ -1,0 +1,73 @@
+<%- include('partials/header'); -%>
+
+    <button class="newProduct"><a href="/">Back</a></button>
+
+
+    <div class="center data">
+        <form method="post" action="/addProduct" class="productList">
+
+            <div class="new_product">
+                <div class="form-group">
+                    <label for="productName">Product Name</label>
+                    <input type="text" name="productName" placeholder="Enter Product Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="productBrand">Brand Name</label>
+                    <input type="text" name="productBrand" placeholder="Enter Brand name" required>
+                </div>
+                <div class="form-group">
+                    <label for="productModel">Model Number</label>
+                    <input type="text" name="productModel" placeholder="Enter model number" required>
+                </div>
+                <div class="form-group">
+                    <label for="productDescription">Description</label>
+                    <input type="text" name="productDescription" placeholder="Enter Description">
+                </div>
+                <div class="form-group">
+                    <label for="price">Price</label>
+                    <input type="number" name="price" placeholder="Enter Price">
+                </div>
+
+                <div class="form-group">
+                    <label for="showPrice" class="text-light">Show Price</label>
+                    <div class="radio inline">
+                        <input type="radio" name="showPrice" value="ON" >
+                        <label for="showPrice">ON</label>
+                    </div>
+                    <div class="radio inline">
+                        <input type="radio" name="showPrice" value="OFF" checked>
+                        <label for="showPrice">OFF</label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="stock">Stock</label>
+                    <input type="number" name="stock" placeholder="Enter Item in stock">
+                </div>
+                <div class="form-group">
+                    <label for="tags">Tags</label>
+                    <input type="text" name="tags" placeholder="Enter common tags separated by commas">
+                </div>
+
+                <div class="form-group">
+                    <label for="display" class="text-light">Display Product</label>
+                    <div class="radio inline">
+                        <input type="radio" name="display" value="ON" checked>
+                        <label for="display">ON</label>
+                    </div>
+                    <div class="radio inline">
+                        <input type="radio" name="display" value="OFF" >
+                        <label for="display">OFF</label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <button type="submit">Save</button>
+                </div>
+        
+            </div>
+  
+        </form>
+    </div>
+<%- include('partials/footer'); -%>

@@ -1,14 +1,12 @@
-const router = require('express').router()
-const controller = require('../controllers/controller')
+const router = require('express').Router()
+const controller = require('../controller/controller')
 
-router.get('/', (req, res) => {
-  res.send('<h1>Working</h1>')
-})
+router.get('/', controller.findProduct)
 
-router.post('/api/products', controller.newProduct)
-router.get('/api/products', controller.allProduct)
-router.put('/api/products/:id', controller.updateProduct)
-router.delete('/api/products/:id', controller.deleteProduct)
-router.get('/api/products/:productName', controller.findProduct)
+router.get('/addProduct', controller.addProductPage)
+router.post('/addProduct', controller.addProduct)
+router.get('/updateProduct', controller.updateProductPage)
+router.post('/updateProduct', controller.updateProduct)
+router.get('/deleteProduct', controller.deleteProduct)
 
 module.exports = router

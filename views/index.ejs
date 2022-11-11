@@ -1,0 +1,51 @@
+<%- include('partials/header'); -%>
+
+    <button class="newProduct"><a href="/addProduct">New Product</a></button>
+    <input type="text" class="searchField" id="myinput" placeholder="Search..." title="Type in something">
+
+    <% if(products=='Empty') {%>
+        <p class="noData">No data</p>
+        <% } else{%>  
+
+    <div class="center data">
+        <table class="productList">
+            <tr>
+            <th class="headingField"><p>Product Name</p></th>
+            <th class="headingField"><p>Brand</p></th>
+            <th class="headingField"><p>Model</p></th>
+            <th class="headingField"><p>Description</p></th>
+            <th class="headingField"><p>Price</p></th>
+            <th class="headingField"><p>Stock</p></th>
+            <th class="headingField"><p>tags</p></th>
+            <th class="headingField"><p>Display</p></th>
+            <th class="headingField"><p>Action</p></th>
+            </tr>
+            <tbody id="mytable">
+
+                <% for(var i of products) {%>
+            <tr>
+                <td class="col" id="productName"><p><%= i.productName %></p></td>
+                <td class="col"><p><%= i.productBrand %></p></td>
+                <td class="col"><p><%= i.productModel %></p></td>
+                <td class="col"><p><%= i.productDescription %></p></td>
+                <% if(i.showPrice=='ON') {%> 
+                <td class="col"><p><%= i.price %></p></td>
+                <% } else {%>
+                <td class="col"><p></p></td>
+                <% } %>  
+                <td class="col"><p><%= i.stock %></p></td>
+                <td class="col"><p><%= i.tags %></p></td>
+                <td class="col"><p><%= i.display %></p></td>
+
+                <td class="col"><p>                
+                    <a class="editButton" href="/updateProduct?id=<%= i.id %>">O</a>
+                    <a class="deleteButton"  href="/deleteProduct?id=<%= i.id %>" onclick="if (confirm('Delete selected item?')){return true;}else{event.stopPropagation(); event.preventDefault();};">X</a>
+                </p></td>
+            </tr> 
+            <% } %>    
+            </tbody>
+  
+        </table>
+    </div>
+    <% } %> 
+<%- include('partials/footer'); -%>
