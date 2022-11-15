@@ -1,7 +1,17 @@
 <%- include('partials/header'); -%>
 
-    <button class="newProduct"><a href="/addProduct">New Product</a></button>
-    <input type="text" class="searchField" id="myinput" placeholder="Search..." title="Type in something">
+    <a href="/addProduct"><button type="button" class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Product</button></a>
+
+    <div class="search-box">
+        <button class="btn-search"><i class="fas fa-search"></i></button>
+        <input type="text" class="searchField" id="myinput" placeholder="Type to Search..." title="Type in something">
+      </div>
+
+    <!-- <input type="text" class="searchField" id="myinput" placeholder="Search..." title="Type in something"> -->
+
+    <% if(notif!='') {%>
+        <p class="alert alert-primary" role="alert" style="font-weight: 700"><%= notif %> </p>
+    <% } %>  
 
     <% if(products=='Empty') {%>
         <p class="noData">No data</p>
@@ -38,8 +48,8 @@
                 <td class="col"><p><%= i.display %></p></td>
 
                 <td class="col"><p>                
-                    <a class="editButton" href="/updateProduct?id=<%= i.id %>">O</a>
-                    <a class="deleteButton"  href="/deleteProduct?id=<%= i.id %>" onclick="if (confirm('Delete selected item?')){return true;}else{event.stopPropagation(); event.preventDefault();};">X</a>
+                    <a class="editButton" href="/updateProduct?id=<%= i.id %>"><i class="fa-solid fa-pen-to-square"></i></a>
+                    <a class="deleteButton"  href="/deleteProduct?id=<%= i.id %>" onclick="if (confirm('Delete selected item?')){return true;}else{event.stopPropagation(); event.preventDefault();};"><i class="fa-solid fa-trash"></i></a>
                 </p></td>
             </tr> 
             <% } %>    

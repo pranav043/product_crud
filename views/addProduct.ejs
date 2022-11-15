@@ -1,6 +1,6 @@
 <%- include('partials/header'); -%>
 
-    <button class="newProduct"><a href="/">Back</a></button>
+    <button class="newProduct"><a href="/"><i class="fa-solid fa-backward"></i> Back</a></button>
 
 
     <div class="center data">
@@ -63,11 +63,14 @@
 
 
                 <div class="form-group">
-                    <button type="submit">Save</button>
+                    <button type="submit"><i class="fa-solid fa-floppy-disk"></i> Save</button>
                 </div>
         
             </div>
   
         </form>
+        <% if(notif!='') {%>
+            <p class="alert alert-success" role="alert" style="font-weight: 700"><%= notif %> </p>
+        <% } %>  
     </div>
 <%- include('partials/footer'); -%>
